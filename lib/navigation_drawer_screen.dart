@@ -36,7 +36,7 @@ class _NavigationDrawerScreenState extends State<NavigationDrawerScreen> {
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(50.0))
                 ),
-                child: Image.network("https://yandex.ru/images/search?pos=13&img_url=https%3A%2F%2Fwww.netclipart.com%2Fpp%2Fm%2F230-2309462_coral-png-transparent-coral-reef-transparent-background.png&text=%D0%BA%D0%BE%D1%80%D0%B0%D0%BB%D0%BB%D1%8B%20png&lr=20714&rpt=simage&source=serp"),
+                child: Image.network("https://i.dlpng.com/static/png/7334902_preview.png"),
               ),
             const Text("Украшения из кораллов"),
             ],
