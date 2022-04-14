@@ -76,7 +76,7 @@ class _NavigationDrawerScreenState extends State<NavigationDrawerScreen> {
         ]
       ),
     ),
-        body: Center(child: Text("Содержимое экрана")),
+        body: const Center(child: Text("Содержимое экрана")),
       )
     );
   }
