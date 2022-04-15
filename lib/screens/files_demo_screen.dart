@@ -1,6 +1,6 @@
-import 'dart:async'; // для работы с асинхрон операциями
-import 'dart:io'; // с операциями ввода/вывода
-// значение просто сохраняется в файле
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -11,13 +11,13 @@ class FilesDemoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Reading and Writing Files',
-      home: FlutterDemo(storage: CounterStorage()), // создан класс-хранилище
+      home: FlutterDemo(storage: CounterStorage()),
     );
   }
 }
 
 class CounterStorage {
-  Future<String> get _localPath async { // получение локального пути
+  Future<String> get _localPath async {
     final directory = await getApplicationDocumentsDirectory();
 
     return directory.path;
@@ -25,10 +25,10 @@ class CounterStorage {
 
   Future<File> get _localFile async {
     final path = await _localPath;
-    return File('$path/counter.txt'); // содана ссылка на файл
+    return File('$path/counter.txt');
   }
 
-  Future<int> readCounter() async { // метод считывает
+  Future<int> readCounter() async {
     try {
       final file = await _localFile;
 
@@ -39,7 +39,7 @@ class CounterStorage {
     } catch (e) {
       // If encountering an error, return 0
       return 0;
-    } // на случай ошибок
+    }
   }
 
   Future<File> writeCounter(int counter) async {
@@ -48,25 +48,24 @@ class CounterStorage {
     // Write the file
     return file.writeAsString('$counter');
   }
-
-
+}
 
 class FlutterDemo extends StatefulWidget {
   const FlutterDemo({Key? key, required this.storage}) : super(key: key);
 
-  final CounterStorage storage; // хранилище
+  final CounterStorage storage;
 
   @override
   _FlutterDemoState createState() => _FlutterDemoState();
 }
 
-class _FlutterDemoState extends State<FlutterDemo> { // класс состояния виджетп
+class _FlutterDemoState extends State<FlutterDemo> {
   int _counter = 0;
 
   @override
-  void initState() { // метод инициализации состояния
+  void initState() {
     super.initState();
-    widget.storage.readCounter().then((int value) { // специфика работы с объектаи, кот пока не созданы
+    widget.storage.readCounter().then((int value) {
       setState(() {
         _counter = value;
       });
